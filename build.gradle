@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-description = 'Ostad_SpringBoot - Library API (H2)'
+description = 'Ostad_SpringBoot - Contact Manager API (H2)'
 
 java {
     toolchain {
@@ -27,11 +27,11 @@ dependencies {
     // H2 in-memory database (runtime)
     runtimeOnly 'com.h2database:h2'
 
-    // Lombok (compile-time only)
+    // Optional: Lombok (not required)
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    // Devtools (optional - only for development)
+    // Devtools (optional)
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     // Testing
@@ -46,11 +46,4 @@ tasks.named('test') {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.compilerArgs += ['-parameters']
-}
-
-// Optional: improve build reproducibility & avoid stale caches
-configurations.all {
-    resolutionStrategy {
-        cacheChangingModulesFor 0, 'seconds'
-    }
 }
