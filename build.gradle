@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-description = 'Ostad_SpringBoot - Contact Manager API (H2)'
+description = 'Ostad_SpringBoot - Product Management API (H2)'
 
 java {
     toolchain {
@@ -26,6 +26,9 @@ dependencies {
 
     // H2 in-memory database (runtime)
     runtimeOnly 'com.h2database:h2'
+
+    // SLF4J Logging (already included with Spring Boot)
+    implementation 'org.slf4j:slf4j-api'
 
     // Optional: Lombok (not required)
     compileOnly 'org.projectlombok:lombok:1.18.34'
