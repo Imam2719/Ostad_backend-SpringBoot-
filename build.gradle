@@ -6,7 +6,6 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-description = 'Ostad_SpringBoot - Product Management API (H2)'
 
 java {
     toolchain {
@@ -23,30 +22,27 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    // H2 in-memory database (runtime)
+    // H2 Database
     runtimeOnly 'com.h2database:h2'
 
-    // SLF4J Logging (already included with Spring Boot)
-    implementation 'org.slf4j:slf4j-api'
-
-    // Optional: Lombok (not required)
+    // Lombok (Optional)
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    // Devtools (optional)
+    // Devtools (Optional)
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
-// Compiler options
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-    options.compilerArgs += ['-parameters']
 }
