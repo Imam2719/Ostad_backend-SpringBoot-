@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### H2 Database ###
+/data/
+
+### Application Properties with Sensitive Data ###
+# Uncomment this if you add real API keys to application.properties
+# src/main/resources/application.properties
