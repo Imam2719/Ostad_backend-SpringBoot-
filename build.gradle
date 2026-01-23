@@ -6,6 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
+description = 'Ostad_SpringBoot - Secure File Sharing Service'
 
 java {
     toolchain {
@@ -18,21 +19,34 @@ repositories {
 }
 
 dependencies {
-    // Spring Boot
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.3'
-    implementation 'org.springframework.boot:spring-boot-starter-validation:3.3.3'
+    // Spring Boot starters
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-    // Lombok
+    // H2 in-memory database (runtime)
+    runtimeOnly 'com.h2database:h2'
+
+    // SLF4J Logging (already included with Spring Boot)
+    implementation 'org.slf4j:slf4j-api'
+
+    // Optional: Lombok (not required)
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    // Dev Tools
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:3.3.3'
+    // Devtools (optional)
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    // TESTING - Complete Spring Boot Test Suite
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.3'
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+// Compiler options
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-parameters']
 }
