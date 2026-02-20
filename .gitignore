@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+**/application-local.properties
 
 ### STS ###
 .apt_generated
@@ -41,4 +42,4 @@ out/
 
 ### Application Properties with Sensitive Data ###
 # Uncomment this if you add real API keys to application.properties
-# src/main/resources/application.properties
+# src/main/resources/application.propertiessrc/main/resources/application-local.properties

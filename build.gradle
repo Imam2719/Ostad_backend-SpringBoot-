@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-description = 'Ostad_SpringBoot - Secure File Sharing Service'
+description = 'Ostad_SpringBoot - Multi-Module Spring Boot Application'
 
 java {
     toolchain {
@@ -24,21 +24,40 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-    // H2 in-memory database (runtime)
+    // Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // JWT dependencies
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+    // Email support
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // H2 Database
     runtimeOnly 'com.h2database:h2'
 
-    // SLF4J Logging (already included with Spring Boot)
+    // Jackson for JSON parsing (GitHub API responses)
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations'
+
+    // CommonMark - Markdown parser for README parsing (Module 25)
+    implementation 'org.commonmark:commonmark:0.22.0'
+
+    // SLF4J Logging
     implementation 'org.slf4j:slf4j-api'
 
-    // Optional: Lombok (not required)
+    // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    // Devtools (optional)
+    // Devtools
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
